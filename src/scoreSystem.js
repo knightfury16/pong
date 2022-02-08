@@ -8,6 +8,15 @@ class ScoreSystem{
 	updateScore(isLeft){
 		if(isLeft)this.rightPlayer++;
 		else this.leftPlayer++;
+		this.checkWinning();  
+
+	}
+
+	checkWinning(){
+		if(this.leftPlayer == 10 || this.rightPlayer == 10){
+			console.log('Game Over');
+			noLoop();
+		}
 	}
 
 	show(){

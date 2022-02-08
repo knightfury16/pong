@@ -4,7 +4,7 @@
 class PuckMovement{
 	constructor(){
 
-		this.puckSpeed = 4;
+		this.puckSpeed = 5;
 		// Taking a random vector and setting its magnitude to puckSpeed 
 		this.vel = p5.Vector.random2D().normalize().setMag(this.puckSpeed);
 

@@ -57,7 +57,7 @@ function draw(){
 	puck.update();
 	puck.show();
 
-	paddleAi.AI(puck);
+	paddleAi.AI(puck,score.leftPlayer,score.rightPlayer);
 
 	// *Key Control when key is pressed
 	KeyControl.pressedKey();
