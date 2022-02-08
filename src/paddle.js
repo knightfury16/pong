@@ -21,11 +21,27 @@ class Paddle extends PaddleMovement{
 
 	}
 
+	showLine(){
+		strokeWeight(2);
+		stroke(255);
+		line(this.offsetGap, 0, this.offsetGap ,width);
+
+	}
+
 	show(){
 		// *Render paddle
 		strokeWeight(2);
 		fill(255);
 		rect(this.offsetGap,this.pos,this.paddleWidth,this.paddleHeight);
+		
+		if(this.isLeft){
+		push();
+		stroke('purple');
+		strokeWeight(5);
+		point(this.offsetGap + (this.paddleWidth/2), this.pos + (this.paddleHeight/2) );
+		pop();
+		}
+
 	}
 }
 

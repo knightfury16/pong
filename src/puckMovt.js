@@ -19,8 +19,8 @@ class PuckMovement{
 		// set heading into that angle
 		this.vel.setHeading(this.angle);
 		// randomly shift the x component to go either left or right
-		if(random(1) < 0.5)this.vel.x *= -1;
-		// if(1)this.vel.x *= 1;
+		// if(random(1) < 0.5)this.vel.x *= -1;
+		if(1)this.vel.x *= -1;
 
 	}
 
