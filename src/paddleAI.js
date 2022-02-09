@@ -15,12 +15,12 @@ class PaddleAI extends AiRandomness{
 
 		this.lvl = this.getLevel(leftPlayerScore,rightPlayerScore);
 
-		console.log(this.predictionSince);
+		// console.log(this.predictionSince);
 
 		let error = 1;
 
 		if( puck.vel.x < 0 && this.predictionSince >= this.lvl.aiReaction){
-			console.log('Predicted = '+ this.lvl.aiReaction);
+			// console.log('Predicted = '+ this.lvl.aiReaction);
 			error *= this.lvl.aiError;
 			let x = this.p1.offsetGap;
 			let y = puck.pos.y + tan(puck.vel.heading()) * (x - puck.pos.x) + error;

@@ -32,7 +32,7 @@ function draw(){
 	// *Score board
 	score.show();
 
-	utility.drawVector(puck.pos,puck.vel,'red');
+	// utility.drawVector(puck.pos,puck.vel,'red');
 	// console.log(tan(puck.vel.heading()));
 	p1.showLine();
 
@@ -40,7 +40,7 @@ function draw(){
 	let y = puck.pos.y + tan(puck.vel.heading()) * (x - puck.pos.x);
 	stroke(255);
 	strokeWeight(3);
-	line(puck.pos.x,puck.pos.y, x, y);
+	// line(puck.pos.x,puck.pos.y, x, y);
 
 
 
@@ -56,6 +56,7 @@ function draw(){
 	// *Puck update and render
 	puck.update();
 	puck.show();
+	// console.log(puck.vel.mag());
 
 	paddleAi.AI(puck,score.leftPlayer,score.rightPlayer);
 
