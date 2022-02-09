@@ -21,6 +21,13 @@ class Paddle extends PaddleMovement{
 
 	}
 
+	showLine(){
+		strokeWeight(2);
+		stroke(255);
+		line(this.offsetGap, 0, this.offsetGap ,width);
+
+	}
+
 	show(){
 		// *Render paddle
 		strokeWeight(2);

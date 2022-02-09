@@ -30,7 +30,7 @@ class PaddleMovement{
 			paddle.pos = offsetTolerence;
 			return false;
 		}else if(paddle.pos + paddle.paddleHeight >= height - offsetTolerence && dir > 0)
-		{
+		{	
 			paddle.pos = height - offsetTolerence - paddle.paddleHeight;
 			return false;
 		}

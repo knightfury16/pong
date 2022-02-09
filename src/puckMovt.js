@@ -4,7 +4,9 @@
 class PuckMovement{
 	constructor(){
 
-		this.puckSpeed = 4;
+		this.spawnPuckSpeed = 4;
+		this.afterHitPuckSpeed = 7;
+		this.puckSpeed = this.spawnPuckSpeed;
 		// Taking a random vector and setting its magnitude to puckSpeed 
 		this.vel = p5.Vector.random2D().normalize().setMag(this.puckSpeed);
 
@@ -18,6 +20,7 @@ class PuckMovement{
 		this.angle = random(-PI/4, PI/4);
 		// set heading into that angle
 		this.vel.setHeading(this.angle);
+		// this.vel.setHeading(2*PI);
 		// randomly shift the x component to go either left or right
 		if(random(1) < 0.5)this.vel.x *= -1;
 		// if(1)this.vel.x *= 1;
@@ -47,6 +50,8 @@ class PuckMovement{
 
 	reset(){
 		this.pos = createVector(width/2,width/2);
+		this.puckSpeed = this.spawnPuckSpeed; 
+		this.vel.setMag(this.puckSpeed);
 		this.limitAngle();
 	}
 
