@@ -4,7 +4,8 @@ class PaddleAI extends AiRandomness{
 		super();
 		this.p1 = p1;
 		this.predictionSince = 0;
-		this.countTime = 0.02;
+		this.countTime = 0.021;
+		this.aiError = 0;
 	}
 
 	AI(puck,leftPlayerScore,rightPlayerScore){
@@ -15,16 +16,9 @@ class PaddleAI extends AiRandomness{
 
 		this.lvl = this.getLevel(leftPlayerScore,rightPlayerScore);
 
-		// console.log(this.predictionSince);
-
-		let error = 1;
-
 		if( puck.vel.x < 0 && this.predictionSince >= this.lvl.aiReaction){
 			// console.log('Predicted = '+ this.lvl.aiReaction);
-			error *= this.lvl.aiError;
-			let x = this.p1.offsetGap;
-			let y = puck.pos.y + tan(puck.vel.heading()) * (x - puck.pos.x) + error;
-			this.intersectionPoint = createVector(x,y);
+			this.intersectionPoint = this.calculateIntersectionPoint(puck);
 	
 			if(this.paddleCenter.y < this.intersectionPoint.y && 
 				this.paddleCenter.y + this.randomTolerence(this.p1.paddleHeight) < this.intersectionPoint.y){
@@ -34,13 +28,18 @@ class PaddleAI extends AiRandomness{
 				this.paddleCenter.y - this.randomTolerence(this.p1.paddleHeight) > this.intersectionPoint.y){
 					this.p1.up(this.p1);
 			}
-
-			// this.predictionSince = 0;
 		}
+	}
 
-		if(puck.vel.x > 0){
-			this.predictionSince = 0;
-			random(1) > 0.5 ? error = -1 : error = 1;
-		}
+	calculateIntersectionPoint(puck){
+		let x = this.p1.offsetGap;
+		let y = puck.pos.y + tan(puck.vel.heading()) * (x - puck.pos.x) + this.aiError;
+		return createVector(x,y);
+	}
+
+	calculateAfterPlayerPlay(leftPlayerScore,rightPlayerScore){
+		this.aiError = this.getLevel(leftPlayerScore,rightPlayerScore).aiError;
+		this.aiError = round(random(-this.aiError,this.aiError));
+		this.predictionSince = 0;
 	}
 }

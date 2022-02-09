@@ -8,6 +8,7 @@ class CollisionSystem{
 	checkCollision(player, puck){
 		if(this.xPositionCheck(player, puck) && this.yPositionCheck(player, puck)){
 			this.handleCollision(player,puck);
+			return true;
 		}
 	}
 

@@ -32,22 +32,9 @@ function draw(){
 	// *Score board
 	score.show();
 
-	// utility.drawVector(puck.pos,puck.vel,'red');
-	// console.log(tan(puck.vel.heading()));
-	p1.showLine();
-
-	let x = p1.offsetGap;
-	let y = puck.pos.y + tan(puck.vel.heading()) * (x - puck.pos.x);
-	stroke(255);
-	strokeWeight(3);
-	// line(puck.pos.x,puck.pos.y, x, y);
-
-
-
-
 	// *Check collision in the world
 	world.checkCollision(p1,puck);
-	world.checkCollision(p2,puck);
+	if(world.checkCollision(p2,puck))paddleAi.calculateAfterPlayerPlay(score.leftPlayer,score.rightPlayer);
 
 	// *Render the paddle
 	p1.show();
@@ -56,7 +43,6 @@ function draw(){
 	// *Puck update and render
 	puck.update();
 	puck.show();
-	// console.log(puck.vel.mag());
 
 	paddleAi.AI(puck,score.leftPlayer,score.rightPlayer);
 
@@ -66,6 +52,6 @@ function draw(){
 }
 
 function keyReleased(){
-	if(key === 'w' || key === 's')KeyControl.releasedKey(p1);
+	// if(key === 'w' || key === 's')KeyControl.releasedKey(p1);
 	if(key === 'ArrowUp' || key === 'ArrowDown')KeyControl.releasedKey(p2);
 }

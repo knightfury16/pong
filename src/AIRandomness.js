@@ -5,10 +5,10 @@ class AiRandomness{
 			{aiReaction: 0.1, aiError:  5}, // 0:  ai is losing by 9
 			{aiReaction: 0.2, aiError:  7}, // 0:  ai is losing by 8
 			{aiReaction: 0.3, aiError:  9}, // 1:  ai is losing by 7
-			{aiReaction: 0.4, aiError:  11}, // 2:  ai is losing by 6
-			{aiReaction: 0.5, aiError:  13}, // 3:  ai is losing by 5
-			{aiReaction: 0.6, aiError:  15}, // 4:  ai is losing by 4
-			{aiReaction: 0.7, aiError:  17}, // 5:  ai is losing by 3
+			{aiReaction: 0.4, aiError: 11}, // 2:  ai is losing by 6
+			{aiReaction: 0.5, aiError: 13}, // 3:  ai is losing by 5
+			{aiReaction: 0.6, aiError: 15}, // 4:  ai is losing by 4
+			{aiReaction: 0.7, aiError: 17}, // 5:  ai is losing by 3
 			{aiReaction: 0.8, aiError: 19}, // 6:  ai is losing by 2
 			{aiReaction: 0.9, aiError: 21}, // 7:  ai is losing by 1
 			{aiReaction: 1.0, aiError: 23}, // 8:  tie
