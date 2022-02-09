@@ -1,6 +1,7 @@
 // *Global variable coz i cant have variables outside method and constructor in js
 // *Used it in PuckMovement class to update score
 let score;
+let Win = false;
 
 function setup(){
 	
@@ -28,6 +29,8 @@ function setup(){
 
 function draw(){
 	background(0);
+
+	
 	
 	// *Score board
 	score.show();
@@ -48,6 +51,15 @@ function draw(){
 
 	// *Key Control when key is pressed
 	KeyControl.pressedKey();
+
+	if(Win){
+		textSize(25);
+		fill(255);
+		text("Game over",width/2 - 50, height/2 - 100);
+		if(score.leftPlayer == score.gamePlayPoint)text("You Loose!", width/2 - 45, height/2 - 50);
+		else text('You Win!', width/2 - 45, height/2 - 50);
+		noLoop();
+	}
 
 }
 

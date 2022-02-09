@@ -3,6 +3,7 @@ class ScoreSystem{
 	constructor(){
 		this.leftPlayer = 0;
 		this.rightPlayer = 0;
+		this.gamePlayPoint = 10;
 	}
 
 	updateScore(isLeft){
@@ -13,9 +14,10 @@ class ScoreSystem{
 	}
 
 	checkWinning(){
-		if(this.leftPlayer == 10 || this.rightPlayer == 10){
-			console.log('Game Over');
-			noLoop();
+		if(this.leftPlayer == this.gamePlayPoint || this.rightPlayer == this.gamePlayPoint){
+			setTimeout(() =>{
+				Win = true;
+			}, 100);
 		}
 	}
 
