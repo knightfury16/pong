@@ -1,4 +1,3 @@
-import { Win } from './index';
 export default class ScoreSystem{
 
 	constructor(instance){
@@ -6,7 +5,6 @@ export default class ScoreSystem{
 		this.leftPlayer = 0;
 		this.rightPlayer = 0;
 		this.gamePlayPoint = 5;
-		this.Win = Win;
 	}
 
 	updateScore(isLeft){

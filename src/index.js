@@ -78,6 +78,5 @@ const sketch = (p) => {
 }
 
 const mySketch = new p5(sketch);
-console.log(mySketch);
 
-export {mySketch, Win};
+export {mySketch};
