@@ -1,7 +1,10 @@
-class PaddleAI extends AiRandomness{
+import AiRandomness from "./AIRandomness";
 
-	constructor(p1){
-		super();
+export default class PaddleAI extends AiRandomness{
+
+	constructor(instance,p1){
+		super(instance);
+		this.instance = instance;
 		this.p1 = p1;
 		this.predictionSince = 0;
 		this.countTime = 0.021;
@@ -12,7 +15,7 @@ class PaddleAI extends AiRandomness{
 
 		this.predictionSince += this.countTime;
 
-		this.paddleCenter = createVector(p1.offsetGap + (p1.paddleWidth/2), p1.pos + (p1.paddleHeight/2));
+		this.paddleCenter = this.instance.createVector(this.p1.offsetGap + (this.p1.paddleWidth/2), this.p1.pos + (this.p1.paddleHeight/2));
 
 		this.lvl = this.getLevel(leftPlayerScore,rightPlayerScore);
 
@@ -33,13 +36,13 @@ class PaddleAI extends AiRandomness{
 
 	calculateIntersectionPoint(puck){
 		let x = this.p1.offsetGap;
-		let y = puck.pos.y + tan(puck.vel.heading()) * (x - puck.pos.x) + this.aiError;
-		return createVector(x,y);
+		let y = puck.pos.y + this.instance.tan(puck.vel.heading()) * (x - puck.pos.x) + this.aiError;
+		return this.instance.createVector(x,y);
 	}
 
 	calculateAfterPlayerPlay(leftPlayerScore,rightPlayerScore){
 		this.aiError = this.getLevel(leftPlayerScore,rightPlayerScore).aiError;
-		this.aiError = round(random(-this.aiError,this.aiError));
+		this.aiError = this.instance.round(this.instance.random(-this.aiError,this.aiError));
 		this.predictionSince = 0;
 	}
 }

@@ -1,16 +1,16 @@
-class utility{
+export default class utility{
 
     constructor()
     {
         this.play = true;
     }
 
-    static clickStop(canvas_ref)
+    static clickStop(instance,canvas_ref)
     {
         canvas_ref.mouseClicked(() => {
-            if(this.play){noLoop();this.play = false;}
+            if(this.play){instance.noLoop();this.play = false;}
             else{
-                loop();
+                instance.loop();
                 this.play = true;
             }
         });

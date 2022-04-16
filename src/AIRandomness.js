@@ -1,6 +1,7 @@
-class AiRandomness{
+export default class AiRandomness{
 
-	constructor(){
+	constructor(instance){
+		this.instance = instance;
 		this.Levels = [
 			{aiReaction: 0.1, aiError:  5}, // 0:  ai is losing by 9
 			{aiReaction: 0.2, aiError:  7}, // 0:  ai is losing by 8
@@ -88,7 +89,7 @@ class AiRandomness{
 
 
 	randomTolerence(paddleHeight){
-		return round(random(5,paddleHeight/2));
+		return this.instance.round(this.instance.random(5,paddleHeight/2));
 	}
 
 

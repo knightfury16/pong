@@ -1,0 +1,28 @@
+{
+  "name": "pong",
+  "version": "1.0.0",
+  "description": "Simple Pong game implementation using SOLID principles.",
+  "main": "index.js",
+  "scripts": {
+    "build":"webpack",
+    "build-dev":"webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knightfury16/pong.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/knightfury16/pong/issues"
+  },
+  "homepage": "https://github.com/knightfury16/pong#readme",
+  "devDependencies": {
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "p5": "^1.4.1"
+  }
+}

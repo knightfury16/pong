@@ -1,11 +1,13 @@
-class PaddleMovement{
+export default class PaddleMovement{
 
-	constructor(){
+	constructor(instance){
+		this.instance = instance;
 		this.startVel = 7;
 		this.vel = this.startVel;
 		this.acc = 0.4;
 		this.maxVel = 20;
 		this.lerpValue = 0.6;
+		this.height = this.instance.height;
 	}
 
 	up(paddle){
@@ -18,7 +20,7 @@ class PaddleMovement{
 	}
 
 	update(paddle, dir){
-		if(this.cheklimit(paddle, dir))paddle.pos = lerp(paddle.pos, paddle.pos + this.vel * dir, this.lerpValue);
+		if(this.cheklimit(paddle, dir))paddle.pos = this.instance.lerp(paddle.pos, paddle.pos + this.vel * dir, this.lerpValue);
 		// console.log(this.vel);
 		if(this.vel <= this.maxVel)this.vel += this.acc;  
 	}
@@ -29,9 +31,9 @@ class PaddleMovement{
 		if(paddle.pos <= offsetTolerence && dir < 0){
 			paddle.pos = offsetTolerence;
 			return false;
-		}else if(paddle.pos + paddle.paddleHeight >= height - offsetTolerence && dir > 0)
+		}else if(paddle.pos + paddle.paddleHeight >= this.height - offsetTolerence && dir > 0)
 		{	
-			paddle.pos = height - offsetTolerence - paddle.paddleHeight;
+			paddle.pos = this.height - offsetTolerence - paddle.paddleHeight;
 			return false;
 		}
 		return true;

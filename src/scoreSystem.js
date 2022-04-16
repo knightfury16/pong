@@ -1,30 +1,31 @@
-class ScoreSystem{
+import { Win } from './index';
+export default class ScoreSystem{
 
-	constructor(){
+	constructor(instance){
+		this.instance = instance;
 		this.leftPlayer = 0;
 		this.rightPlayer = 0;
-		this.gamePlayPoint = 10;
+		this.gamePlayPoint = 5;
+		this.Win = Win;
 	}
 
 	updateScore(isLeft){
 		if(isLeft)this.rightPlayer++;
 		else this.leftPlayer++;
-		this.checkWinning();  
-
+		// return this.checkWinning();  
 	}
 
 	checkWinning(){
 		if(this.leftPlayer == this.gamePlayPoint || this.rightPlayer == this.gamePlayPoint){
-			setTimeout(() =>{
-				Win = true;
-			}, 100);
+			return true
 		}
+		return false;
 	}
 
 	show(){
-		textSize(32);
-		text(this.leftPlayer, 32, 40);
-		text(this.rightPlayer, width - 64, 40);
+		this.instance.textSize(32);
+		this.instance.text(this.leftPlayer, 32, 40);
+		this.instance.text(this.rightPlayer, this.instance.width - 64, 40);
 	}
 
 

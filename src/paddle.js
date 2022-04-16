@@ -1,11 +1,13 @@
+import PaddleMovement from "./paddleMovt";
 // * Class to render paddle
 
-class Paddle extends PaddleMovement{
+export default class Paddle extends PaddleMovement{
 	
-	constructor(isLeft){
+	constructor(instance,isLeft){
 
-		super();
-		
+		super(instance);
+		this.instance = instance;
+
 		this.isLeft = isLeft;
 		
 		// * Paddle dimension
@@ -14,25 +16,25 @@ class Paddle extends PaddleMovement{
 
 		// *Offset gap from the edge
 		this.offsetGap = 20; //From the edge
-		this.middle = width/2;
-		if(!this.isLeft)this.offsetGap = width - (this.offsetGap + this.paddleWidth);
+		this.middle = this.instance.width/2;
+		if(!this.isLeft)this.offsetGap = this.instance.width - (this.offsetGap + this.paddleWidth);
 
 		this.pos = this.middle;
 
 	}
 
 	showLine(){
-		strokeWeight(2);
-		stroke(255);
-		line(this.offsetGap, 0, this.offsetGap ,width);
+		this.instance.strokeWeight(2);
+		this.instance.stroke(255);
+		this.instance.line(this.offsetGap, 0, this.offsetGap ,width);
 
 	}
 
 	show(){
 		// *Render paddle
-		strokeWeight(2);
-		fill(255);
-		rect(this.offsetGap,this.pos,this.paddleWidth,this.paddleHeight);
+		this.instance.strokeWeight(2);
+		this.instance.fill(255);
+		this.instance.rect(this.offsetGap,this.pos,this.paddleWidth,this.paddleHeight);
 	}
 }
 
